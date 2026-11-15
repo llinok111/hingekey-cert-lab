@@ -8,3 +8,4 @@ __pycache__/
 dist/
 screenshots/
 .model-patch.yml
+state/
