@@ -1,0 +1,13 @@
+{
+  "name": "hingekey-cert-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rig-level minimum-keyframe allocation with an exact continuous-time joint bound and a certified end-effector bound.",
+  "license": "MIT",
+  "scripts": {
+    "sample": "node tools/gen-sample.mjs",
+    "verify": "node bench/verify.mjs",
+    "bench": "node bench/bench.mjs"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>hingekey-cert-lab — certified rig keyframe allocation</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b0f14; color: #d8e2ea; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  #app { position: fixed; inset: 0; }
+  #hud { position: fixed; top: 14px; left: 14px; width: 430px; padding: 14px 16px; background: rgba(10,16,22,.86); border: 1px solid #22303c; border-radius: 10px; }
+  h1 { margin: 0 0 6px; font-size: 15px; letter-spacing: .3px; color: #9fd0ff; }
+  .sub { color: #7f93a3; margin-bottom: 10px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 2px 0; }
+  .k { color: #8fa6b8; }
+  .v { color: #e8f2fa; text-align: right; }
+  .ok { color: #5ee08a; }
+  .bad { color: #ff6b6b; }
+  input[type=range] { width: 100%; margin: 10px 0 2px; }
+  .legend { margin-top: 10px; color: #7f93a3; }
+  .sw { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="hud">
+  <h1>hingekey-cert-lab</h1>
+  <div class="sub">one end-effector budget &rarr; minimum total keys</div>
+  <div class="row"><span class="k">budget &epsilon; (world)</span><span class="v" id="eps">0.167</span></div>
+  <input id="slider" type="range" min="0" max="3" step="1" value="2" />
+  <div class="row"><span class="k">keys: original / allocated</span><span class="v" id="keys">–</span></div>
+  <div class="row"><span class="k">equal-budget baseline</span><span class="v" id="base">–</span></div>
+  <div class="row"><span class="k">per-joint &Delta;&theta; (deg)</span><span class="v" id="deltas">–</span></div>
+  <div class="row"><span class="k">certified bound (exact)</span><span class="v" id="bound">–</span></div>
+  <div class="row"><span class="k">sampled FK tip error</span><span class="v" id="sampled">–</span></div>
+  <div class="row"><span class="k">node/browser fingerprint</span><span class="v" id="fp">–</span></div>
+  <div class="legend"><span class="sw" style="background:#3f7fbf"></span>original 241 keys/joint
+    &nbsp;&nbsp;<span class="sw" style="background:#d98c3f"></span>allocated plan, same core as node</div>
+</div>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

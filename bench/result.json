@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-11-15T20:28:08.621Z",
+  "node": "v24.19.0",
+  "toleranceDeg": 1,
+  "rig": {
+    "joints": 6,
+    "keysPerJoint": 241,
+    "totalKeys": 1446,
+    "fps": 60,
+    "durationSec": 4
+  },
+  "decimation": {
+    "keysOriginal": 1446,
+    "keysKept": 387,
+    "reductionPct": 73.23651452282158,
+    "keysPerJoint": [
+      19,
+      30,
+      45,
+      76,
+      89,
+      128
+    ],
+    "worstJointErrorDeg": 0.9999552649708003,
+    "greedyKeys": 462,
+    "greedyOverheadPct": 19.379844961240302,
+    "uniformKeys": 966,
+    "uniformOverheadPct": 149.6124031007752,
+    "bakedMatch": true,
+    "fingerprint": "6d33fed1",
+    "bakedFingerprint": "6d33fed1"
+  },
+  "tip": {
+    "certifiedBoundWorld": 0.15238356245897894,
+    "sampledTipErrorWorld": 0.06052338499109152,
+    "sampledOverBound": 0.3971779108877585,
+    "samples": 801,
+    "reachWeights": [
+      2.59021,
+      2.178711,
+      1.677706,
+      1.29327,
+      0.754683,
+      0.307277
+    ]
+  },
+  "allocation": {
+    "epsTipWorld": 0.167,
+    "reachSum": 8.801857141866348,
+    "keys": 296,
+    "equalBudgetKeys": 370,
+    "savingVsEqualBudgetPct": 19.999999999999996,
+    "perJointKeys": [
+      43,
+      67,
+      50,
+      40,
+      45,
+      51
+    ],
+    "deltasDeg": [
+      0.316167388553459,
+      0.316167388553459,
+      0.9281996003000602,
+      2.724994826123615,
+      2.724994826123615,
+      2.724994826123615
+    ],
+    "certifiedBound": 0.162163486269532,
+    "sampledTipError": 0.07195385071638395,
+    "sampledOverBound": 0.4437117896983876,
+    "equalBudgetDeltaDeg": 1.0870882160961617,
+    "gridLevels": 12,
+    "quantum": 400,
+    "fingerprint": "326b5bd4",
+    "bakedFingerprint": "326b5bd4",
+    "timingMs": {
+      "coldStart": 342.458375,
+      "samples": [
+        338.831415,
+        337.008789,
+        337.721612,
+        338.583855,
+        338.978238
+      ],
+      "n": 5,
+      "min": 337.008789,
+      "median": 338.583855,
+      "p95": 338.978238,
+      "max": 338.978238,
+      "mean": 338.22478179999996,
+      "stddev": 0.7478572036027779,
+      "relStddevPct": 0.22111248017450208
+    }
+  },
+  "timingMs": {
+    "samples": [
+      34.422683,
+      35.172095,
+      31.871784,
+      31.155603,
+      31.175479,
+      31.389777,
+      30.448589
+    ],
+    "n": 7,
+    "coldStart": 42.873216,
+    "min": 30.448589,
+    "median": 31.389777,
+    "p25": 31.155603,
+    "p75": 34.422683,
+    "p95": 35.172095,
+    "max": 35.172095,
+    "mean": 32.233715714285715,
+    "stddev": 1.6791897313943425,
+    "relStddevPct": 5.209420304746746,
+    "greedyTotal": 0.609903,
+    "uniformTotal": 1.020035
+  },
+  "notes": [
+    "coldStart is the first reduceRig call in a fresh node process (includes data already parsed).",
+    "median/p95 are over 7 repetitions of the same 6-track reduction at 1 degree.",
+    "uniform baseline found the smallest feasible stride, so its key count is the cheapest uniform track that still meets the bound."
+  ]
+}
