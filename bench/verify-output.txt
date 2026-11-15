@@ -1,0 +1,47 @@
+PASS rig.jointCount: 6 joints
+PASS rig.keyCount: 241 keys/joint, 241 declared
+PASS rig.timesMonotone: times strictly increasing
+PASS knotSupDenseLeExact: dense never exceeds exact (max slack 1.231e-5 rad)
+PASS knotSupTight: exact - dense = 1.231e-5 rad < 2e-4 (400 samples/segment)
+PASS dpMatchesBrute_0_0.05: dp 10 keys == brute-force optimum 10 (n=11, 512 subsets)
+PASS dpMatchesBrute_0_0.12: dp 10 keys == brute-force optimum 10 (n=11, 512 subsets)
+PASS dpMatchesBrute_1_0.12: dp 9 keys == brute-force optimum 9 (n=11, 512 subsets)
+PASS dpMatchesBrute_2_0.12: dp 9 keys == brute-force optimum 9 (n=11, 512 subsets)
+PASS dpOptimalityAll: 9 cases, 0 mismatches; 9 exhaustive searches
+PASS optimalFeasible: max error 1.7453e-2 rad = 1.0000 deg <= 1 deg
+PASS optimal1Minimal: removing any one of 387 kept keys breaks the 1 deg bound (all 375 interior removals tested)
+PASS optimalKeyCount: 387 keys kept out of 1446 = 73.24% fewer
+PASS greedyFeasible: greedy 462 keys, all tracks within 1 deg
+PASS uniformFeasible: uniform 966 keys, all tracks within 1 deg
+PASS dpBeatsGreedy: optimal 387 vs greedy 462 (+19.4% keys)
+PASS dpBeatsUniform: optimal 387 vs uniform 966 (+149.6% keys)
+  eps 0.02: alloc 1021 keys (bound 0.01985 <= 0.02, sampled 0.00602) vs equal-budget 1036
+  eps 0.05: alloc 700 keys (bound 0.04566 <= 0.05, sampled 0.01990) vs equal-budget 772
+  eps 0.167: alloc 296 keys (bound 0.16216 <= 0.167, sampled 0.07195) vs equal-budget 370
+  eps 0.25: alloc 209 keys (bound 0.24119 <= 0.25, sampled 0.07804) vs equal-budget 283
+PASS allocFeasible: certified end-effector bound <= eps at all 4 budgets
+PASS allocSampledUnderBound: 801-sample FK error never exceeds the certified bound
+PASS allocBakedMatch: key counts + deltas + fingerprints reproduce rig.json
+PASS allocBeatsEqualBudget: alloc keys 1021/700/296/209 vs equal-budget 1036/772/370/283
+PASS allocMonotoneInBudget: keys non-increasing as eps grows: 1021 -> 700 -> 296 -> 209
+PASS allocAt167: eps 0.167 -> 296 keys, bound 0.1622, per-joint deltas [0.32, 0.32, 0.93, 2.72, 2.72, 2.72] deg
+PASS allocDpMatchesExhaustive: dp 328 keys == exhaustive 328 over 7^6 = 117649 grid combos (levels=7)
+PASS allocExhaustiveCombo: exhaustive found a feasible combo (spend <= 0.167)
+PASS continuousGuarantee2001: max |orig-decimated| over 2001 times = 1.7453e-2 rad = 1.0000 deg <= 1 deg
+PASS evalAtKeptKeys: max deviation at kept keys = 0.000e+0 rad
+PASS bakedFingerprints: 4 tolerances reproduce baked fp (1 deg -> 6d33fed1)
+PASS bakedKeyCounts: key counts match rig.json for 0.25/0.5/1/2 deg
+PASS tipBoundDominates: sampled tip error <= certified bound at all 4 tolerances (worst ratio 0.452)
+PASS tightnessWorstTol2: worst joint error at 2 deg = 1.9962 deg
+PASS tipBoundBruteForce: 200 random perturbations: 0 bound violations, worst actual/bound 0.641
+PASS reachWeightsMonotone: R_0=2.590 > ... > R_5=0.307 (world units, distal joints have less reach)
+PASS angleScaleInvariance: keep sets identical for angle x {1e-6,1e-3,1,1e3,1e6}
+PASS tipBoundScalesLinearly: bound x s exact for s in {1e-6,1e-3,1e3,1e6} (base 2.277e-2)
+PASS edgeTwoKeys: n=2 keeps both endpoints
+PASS edgeOneKey: n=1 keeps the only key
+PASS fingerprintStable: fp 7a638616 stable across calls
+PASS segmentMaxErrorExact: chord 0->1 vs middle 0.3: max error 0.2000 at knot 1
+PASS fkZeroAngles: tip at zero pose matches offset sum within 4.441e-16
+PASS fkMovesTip: bent pose tip moved 2.2128 world units
+
+RESULT PASS: 41 passed / 0 failed
