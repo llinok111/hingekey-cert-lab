@@ -42,6 +42,8 @@ No install step: no dependencies, no `node_modules`, three.js comes from a pinne
 | scale invariance | angle × {1e-6…1e6}: identical keep sets; tip bound scales exactly |
 | generator determinism | two runs, same sha256 `6cf6a08f939562a0…` |
 
+Rows for ε=0.05/0.25 come from `bench/verify-output.txt` + `data/rig.json` (bench times only the headline ε=0.167).
+
 `bench/verify.mjs` prints every asserted value (41 passed / 0 failed), including DP-vs-exhaustive (512 subsets, n=11) and allocation-DP-vs-exhaustive over 7⁶ = 117,649 grid combinations.
 
 ## 本轮创新
