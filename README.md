@@ -34,7 +34,7 @@ No install step: no dependencies, no `node_modules`, three.js comes from a pinne
 | greedy RDP at 1° | 462 keys (**+19.4%** vs DP), feasible |
 | uniform stride at 1° | 966 keys (**+149.6%** vs DP), feasible |
 | allocation ε=0.167 | **296 keys**, certified tip bound **0.1622**, sampled FK error 0.0720 |
-| equal-budget baseline ε=0.167 | 370 keys (Δθ = 0.994°/joint), **−20.0%** for allocation |
+| equal-budget baseline ε=0.167 | 370 keys (Δθ = 1.087°/joint), **−20.0%** for allocation |
 | allocation ε=0.05 / 0.25 | 700 / 209 keys vs 772 / 283 equal-budget (−9.3% / −26.1%) |
 | per-joint DP timing | cold 42.9 ms, median **31.4 ms**, p95 35.2, relSD 5.21% (7 reps) |
 | allocation timing | cold 342.5 ms, median **338.6 ms**, p95 339.0, relSD 0.22% (5 reps) |
