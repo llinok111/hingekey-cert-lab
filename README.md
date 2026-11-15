@@ -1,6 +1,6 @@
 # hingekey-cert-lab
 
-**One end-effector budget, minimum total keyframes.** On a 6-joint hinge rig (241 keys/joint, 1,446 total, 2.59 m reach): an end-effector budget of **ε = 0.167 world units** keeps **296 keys instead of 370** for the equal-Δθ baseline (**−20.0%**) and **296 instead of 387** for a 1°/joint plan (−23.5%), with every joint's continuous-time angle error **exactly** bounded (no sampling) and the tip bound **certified** at 0.1622 ≤ ε.
+**One end-effector budget, minimum total keyframes.** On a 6-joint hinge rig (241 keys/joint, 1,446 total, 2.59 world-unit reach): an end-effector budget of **ε = 0.167 world units** keeps **296 keys instead of 370** for the equal-Δθ baseline (**−20.0%**) and **296 instead of 387** for a 1°/joint plan (−23.5%), with every joint's continuous-time angle error **exactly** bounded (no sampling) and the tip bound **certified** at 0.1622 ≤ ε.
 
 Upstream: none
 
@@ -9,7 +9,7 @@ Upstream: none
 Two different problems live here, and only the second one is the product:
 
 1. **Inner loop (exact, per joint).** Given one angle tolerance, find the *provably minimum-cardinality* subset of original keyframes such that linear interpolation never exceeds the tolerance. Both the original and the reduced angle are piecewise linear on the original knots, so `|θ(t) − θ̂(t)|` is piecewise linear too: its supremum is attained at an original knot. The check is exact — no sampling, no Lipschitz fudge. The subset comes from an interval DP over feasible chords, and is checked against exhaustive enumeration on small tracks.
-2. **Outer loop (the new part).** A rig does not care about per-joint tolerances; it cares about the **end effector**. Joint `m` consumes `|Δθ_m| · R_m` of tip-space budget (`R_m` = downstream reach), and its key count is a step function obtained from the exact DP. `allocateBudgets()` solves the cross-joint knapsack by DP over a quantized tip budget and returns the **minimum total keys** for one ε. Equal-Δθ is the baseline it beats.
+2. **Outer loop (the new part).** A rig does not care about per-joint tolerances; it cares about the **end effector**. Joint `m` consumes `|Δθ_m| · R_m` of tip-space budget (`R_m` = downstream reach in world units), and its key count is a step function obtained from the exact DP. `allocateBudgets()` solves the cross-joint knapsack by DP over a quantized tip budget and returns the **minimum total keys** for one ε. Equal-Δθ is the baseline it beats.
 
 The browser plays the original and the allocated plan side by side and shows the same numbers, recomputed by the same `src/core.mjs`, plus a fingerprint match against the node-baked plan.
 
